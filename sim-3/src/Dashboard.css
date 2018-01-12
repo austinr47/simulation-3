@@ -11,6 +11,11 @@
     font-size: 20px;
 }
 
+.link {
+    text-Decoration: 'none';
+    color: white;
+}
+
 .header-buttons {
     font-size: 30px;
     /* padding: 0 10px; */

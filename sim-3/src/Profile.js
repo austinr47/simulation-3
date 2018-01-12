@@ -6,7 +6,7 @@ import { login } from './ducks/reducer';
 import './Dashboard.css';
 import Header from './Header';
 
-class Dashboard extends Component {
+class Profile extends Component {
 
     componentDidMount() {
         axios.get('/user-data/').then(response => {
@@ -15,17 +15,6 @@ class Dashboard extends Component {
             }
     });
 }
-
-
-// {user && <div>Your are logged in as: 
-//     <div><strong>{user.name}</strong></div>
-//     <div><strong>{user.email}</strong></div>
-//     <div><strong>{user.auth0_id}</strong></div>
-//     <img src={user.pictureUrl} alt=''/>
-//     </div>}
-// {!user && <div>You must login! <Link to='/'>Log in</Link></div>}
-
-
     render() {
         const { user } = this.props;
         return (
@@ -34,22 +23,12 @@ class Dashboard extends Component {
                 <div>
                     <div className='header-main'>{/* header bar*/}
                     <Header />
-                    <div>Dashboard</div>
+                    <div>Profile</div>
                     <Link to='/logout' style={{ textDecoration: 'none' }}><div className='link'>Logout</div></Link>
-                </div>
-                <div> {/* top two boxes*/}
-                    <div>
-                        <Link to='/profile'><button>Edit Profile</button></Link>
                     </div>
-                    <div></div>
-                </div>
-                <div> {/* bottom boxe*/}
-
-
-                </div>
                 </div>}
 
-                {!user && <div>You must login! <Link to='/'>Log in</Link></div>}
+                {!user && <h1>You must login! <Link to='/'>Log in</Link></h1>}
                 
             </div>
         );
@@ -66,4 +45,4 @@ const mapDispatchToProps = {
     login: login,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);
+export default connect(mapStateToProps, mapDispatchToProps)(Profile);

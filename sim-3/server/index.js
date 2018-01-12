@@ -30,6 +30,7 @@ app.post('/login', (req, res) => {
       }
     }).then ( response => {
         const userData = response.data;
+        // console.log(response)
         req.session.user = {
             name: userData.name,
             email: userData.email,
@@ -38,22 +39,31 @@ app.post('/login', (req, res) => {
         };
         res.json({ user: req.session.user });
         app.get('db').find_user(userData.user_id).then(users => {
+            console.log(users)
             if (!users.length) {
               app.get('db').create_user([userData.user_id, userData.email, userData.picture, userData.name]).then(() => {
                 
               }).catch(error => {
-                console.log('error', error);
+                // console.log('error', error);
+                res.status(500).json({ message: 'Oh noes!1'});
+              }).catch(error => {
+                // console.log('error', error);
+                res.status(500).json({ message: 'Oh noes!2'});
               });
             } 
-          })
+          }).catch(error => {
+            // console.log('error', error);
+            res.status(500).json({ message: 'Oh noes!3'});
+          });
     }).catch(error => {
-        console.log('error', error);
-        res.status(500).json({ message: 'Oh noes!'});
+        // console.log('error', error);
+        res.status(500).json({ message: 'Oh noes!4'});
     });
 });
 
 app.get('/user-data', (req, res) => {
     res.json({ user: req.session.user })
+    console.log('its running!')
 })
 
   const PORT = process.env.SERVER_PORT || 3035;
