@@ -1,11 +1,15 @@
 body {
-    height: 100%;
-    background-color: #F2F2F2;
+    height: 100vh;
+    border-radius: 8px;
+    background-image: linear-gradient(128deg, rgba(64, 61, 57, 0.1), rgba(255, 255, 255, 0.2));
+    box-shadow: 0 14px 28px 0
+    rgba(0, 0, 0, 0.25), 0 10px 10px 0
+    rgba(0, 0, 0, 0.26);
 }
 
 .main-login {
     background-image: linear-gradient(99deg, #ff70a6, #ff9770 40%, #ffd670 73%, #e9ff70);
-    height: 50em; 
+    height: 100vh; 
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -24,8 +28,27 @@ body {
     padding: 20px;
 }
 
-.login-box div {
+.helo-text1 {
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.helo-text3 {
+    font-size: 40px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 69px;
+}
+
+.helo-text {
     font-size: 100px;
+    display: flex;
+    justify-content: center;
+}
+
+.login-box div {
+    /* font-size: 100px; */
     color: #ffffff;
     padding: 30px 0;
     box-sizing: content-box;
